@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>梁宇飞 | 科技朋克生日派对邀请</title>
+    <meta name="description" content="7月22日，一起在车公庙纯K庆祝梁宇飞的科技朋克生日派对！">
+    
+    <!-- 微信分享配置 -->
+    <meta property="og:title" content="梁宇飞 | 科技朋克生日派对邀请">
+    <meta property="og:description" content="7月22日，车公庙纯K，一起庆祝科技男孩的生日！">
+    <meta property="og:image" content="https://your-domain.com/birthday-share.jpg">
+    
+    <!-- 字体和图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #00ff9d;
+            --secondary-color: #7700ff;
+            --accent-color: #ff00c8;
+            --dark-bg: #0a0a14;
+            --darker-bg: #050510;
+            --neon-glow: 0 0 10px var(--primary-color),
+                         0 0 20px var(--primary-color),
+                         0 0 30px var(--primary-color);
+        }
+        
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--dark-bg);
+            color: white;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(119, 0, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 200, 0.1) 0%, transparent 20%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .cyberpunk-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* 科技扫描线背景 */
+        .cyberpunk-container::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(0, 255, 157, 0.03) 50%
+            );
+            background-size: 100% 4px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .glitch {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            text-shadow: var(--neon-glow);
+            animation: glitch 3s infinite;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: "梁宇飞生日派对";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--accent-color);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--secondary-color);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        .birthday-boy {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .info-card {
+            background: rgba(5, 5, 16, 0.8);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+        }
+        
+        .info-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--primary-color), 
+                var(--secondary-color), 
+                var(--accent-color));
+        }
+        
+        .info-title {
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .info-title i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .info-detail {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-detail i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .countdown {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed var(--secondary-color);
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .countdown-title {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .time-unit {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--accent-color);
+            border-radius: 5px;
+            padding: 10px 5px;
+            min-width: 70px;
+        }
+        
+        .time-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-shadow: var(--neon-glow);
+        }
+        
+        .time-label {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 5px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .cyber-button {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 15px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-button:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            box-shadow: var(--neon-glow);
+        }
+        
+        .cyber-button:nth-child(2) {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .cyber-button:nth-child(2):hover {
+            background: var(--accent-color);
+            color: var(--dark-bg);
+        }
+        
+        .cyber-button:nth-child(3) {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .cyber-button:nth-child(3):hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        .music-toggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--darker-bg);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+            transition: all 0.3s;
+        }
+        
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.8);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 157, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* 动画 */
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(24px, 550px, 90px, 0); }
+            5% { clip: rect(65px, 550px, 90px, 0); }
+            10% { clip: rect(52px, 550px, 80px, 0); }
+            15% { clip: rect(37px, 550px, 105px, 0); }
+            20% { clip: rect(24px, 550px, 90px, 0); }
+            100% { clip: rect(24px, 550px, 90px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(85px, 550px, 140px, 0); }
+            5% { clip: rect(20px, 550px, 65px, 0); }
+            10% { clip: rect(70px, 550px, 120px, 0); }
+            15% { clip: rect(40px, 550px, 85px, 0); }
+            20% { clip: rect(85px, 550px, 140px, 0); }
+            100% { clip: rect(85px, 550px, 140px, 0); }
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 480px) {
+            .cyberpunk-container {
+                padding: 15px;
+            }
+            
+            .glitch {
+                font-size: 2.2rem;
+            }
+            
+            .info-detail {
+                font-size: 1.1rem;
+            }
+            
+            .time-unit {
+                min-width: 60px;
+                padding: 8px 5px;
+            }
+            
+            .time-number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyberpunk-container">
+        <div class="tech-grid"></div>
+        
+        <div class="header">
+            <div class="glitch">梁宇飞生日派对</div>
+            <div class="birthday-boy">科技男孩的朋克生日庆典</div>
+        </div>
+        
+        <div class="info-card">
+            <div class="info-title">
+                <i class="fas fa-calendar-alt"></i>
+                <span>派对信息</span>
+            </div>
+            
+            <div class="info-detail">
+                <i class="fas fa-birthday-cake"></i>
+                <span>寿星：梁宇飞同学</span>
+            </div>
+            
+            <div class="info-detail">
+                <i class="fas fa-clock"></i>
+                <span>时间：7月22日 下午4:00 - 9:00</span>
+            </div>
+            
+            <div class="info-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>地点：车公庙纯K</span>
+            </div>
+            
+            <div class="info-detail">
+                <i class="fas fa-music"></i>
+                <span>主题：科技朋克 | 摇滚之夜</span>
+            </div>
+        </div>
+        
+        <div class="countdown">
+            <div class="countdown-title">派对倒计时</div>
+            <div class="countdown-timer">
+                <div class="time-unit">
+                    <div class="time-number" id="days">00</div>
+                    <div class="time-label">天</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-number" id="hours">00</div>
+                    <div class="time-label">时</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-number" id="minutes">00</div>
+                    <div class="time-label">分</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-number" id="seconds">00</div>
+                    <div class="time-label">秒</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="cyber-button" id="confirmBtn">
+                <i class="fas fa-user-check"></i> 确认参加
+            </button>
+            <button class="cyber-button" id="locationBtn">
+                <i class="fas fa-map-marked-alt"></i> 导航到车公庙纯K
+            </button>
+            <button class="cyber-button" id="shareBtn">
+                <i class="fas fa-share-alt"></i> 分享给朋友
+            </button>
+        </div>
+        
+        <div class="info-card">
+            <div class="info-title">
+                <i class="fas fa-info-circle"></i>
+                <span>活动说明</span>
+            </div>
+            <p style="line-height: 1.6; color: #ddd;">
+                这是一个科技朋克主题的生日派对！<br>
+                请穿着带有未来感或朋克元素的服装，<br>
+                现场有朋克摇滚音乐、科技主题装饰，<br>
+                以及为科技男孩准备的特别惊喜！<br>
+                <br>
+                <span style="color: var(--primary-color);">无需携带礼物，你的到来就是最好的祝福！</span>
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>期待与你在科技朋克的夜晚相聚！</p>
+            <p style="margin-top: 5px; font-size: 0.8rem;">扫描二维码分享给朋友</p>
+            <div id="qrcode" style="margin: 15px auto; width: 120px; height: 120px; background: #fff; padding: 5px;"></div>
+        </div>
+        
+        <div class="music-player">
+            <div class="music-toggle" id="musicToggle">
+                <i class="fas fa-play" id="musicIcon"></i>
+            </div>
+            <audio id="bgMusic" loop>
+                <!-- 这里可以替换为实际的朋克音乐链接 -->
+                <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // 倒计时功能
+        function updateCountdown() {
+            const targetDate = new Date('2024-07-22T16:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+            
+            if (timeLeft < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // 初始化倒计时
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // 音乐控制
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicIcon = document.getElementById('musicIcon');
+        let isPlaying = false;
+        
+        // 微信自动播放策略：需要用户交互后才能播放
+        musicToggle.addEventListener('click', function() {
+            if (!isPlaying) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.className = 'fas fa-pause';
+                }).catch(error => {
+                    console.log("自动播放被阻止:", error);
+                    alert("点击确定后，请再次点击音乐按钮播放音乐");
+                });
+            } else {
+                bgMusic.pause();
+                isPlaying = false;
+                musicIcon.className = 'fas fa-play';
+            }
+        });
+        
+        // 导航功能
+        document.getElementById('locationBtn').addEventListener('click', function() {
+            const isWechat = /MicroMessenger/i.test(navigator.userAgent);
+            const address = "车公庙纯K";
+            
+            if (isWechat) {
+                alert(`在微信中，请点击右上角菜单，选择"在浏览器打开"，然后使用地图导航到：${address}`);
+            } else {
+                // 使用百度地图（可更改为高德地图或腾讯地图）
+                window.open(`https://api.map.baidu.com/geocoder?address=${encodeURIComponent(address)}&output=html`);
+            }
+        });
+        
+        // 确认参加功能
+        document.getElementById('confirmBtn').addEventListener('click', function() {
+            const btn = this;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-check"></i> 已确认参加！';
+            btn.style.background = 'var(--primary-color)';
+            btn.style.color = 'var(--dark-bg)';
+            btn.style.boxShadow = '0 0 20px var(--primary-color)';
+            btn.disabled = true;
+            
+            // 保存到本地存储
+            localStorage.setItem('birthdayRSVP', 'confirmed');
+            
+            // 3秒后恢复
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.style.boxShadow = '';
+                btn.disabled = false;
+            }, 3000);
+        });
+        
+        // 检查是否已确认参加
+        window.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('birthdayRSVP') === 'confirmed') {
+                const btn = document.getElementById('confirmBtn');
+                btn.innerHTML = '<i class="fas fa-check"></i> 已确认参加';
+                btn.style.background = 'var(--primary-color)';
+                btn.style.color = 'var(--dark-bg)';
+            }
+        });
+        
+        // 分享功能
+        document.getElementById('shareBtn').addEventListener('click', function() {
+            const shareData = {
+                title: '梁宇飞 | 科技朋克生日派对邀请',
+                text: '7月22日，车公庙纯K，一起庆祝科技男孩的生日！',
+                url: window.location.href
+            };
+            
+            if (navigator.share) {
+                navigator.share(shareData)
+                    .then(() => console.log('分享成功'))
+                    .catch((error) => console.log('分享失败:', error));
+            } else {
+                // 备用分享方案
+                alert('请使用浏览器的分享功能或复制链接分享给朋友！\n\n' + window.location.href);
+                
+                // 复制到剪贴板
+                navigator.clipboard.writeText(window.location.href)
+                    .then(() => {
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-check"></i> 链接已复制！';
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                        }, 2000);
+                    });
+            }
+        });
+        
+        // 微信分享配置
+        document.addEventListener('WeixinJSBridgeReady', function() {
+            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                WeixinJSBridge.invoke('sendAppMessage', {
+                    "appid": "",
+                    "img_url": "https://your-domain.com/birthday-share.jpg",
+                    "img_width": "200",
+                    "img_height": "200",
+                    "link": window.location.href,
+                    "desc": "7月22日，车公庙纯K，一起庆祝科技男孩的生日！",
+                    "title": "梁宇飞 | 科技朋克生日派对邀请"
+                });
+            });
+            
+            WeixinJSBridge.on('menu:share:timeline', function(argv){
+                WeixinJSBridge.invoke('shareTimeline', {
+                    "img_url": "https://your-domain.com/birthday-share.jpg",
+                    "img_width": "200",
+                    "img_height": "200",
+                    "link": window.location.href,
+                    "desc": "7月22日，车公庙纯K，一起庆祝科技男孩的生日！",
+                    "title": "梁宇飞 | 科技朋克生日派对邀请"
+                });
+            });
+        });
+        
+        // 简单二维码生成（使用简单CSS模拟）
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrcodeEl = document.getElementById('qrcode');
+            const currentUrl = window.location.href;
+            
+            // 在实际项目中，这里应该使用二维码生成库
+            // 这里只是模拟一个二维码外观
+            qrcodeEl.innerHTML = `
+                <div style="width: 100%; height: 100%; background: #fff; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 0.7rem; color: #000; text-align: center; font-weight: bold; margin-bottom: 5px;">
+                        生日派对
+                    </div>
+                    <div style="width: 80px; height: 80px; background: #000; position: relative;">
+                        <!-- 模拟二维码图案 -->
+                        <div style="position: absolute; width: 20px; height: 20px; background: #000; top: 5px; left: 5px;"></div>
+                        <div style="position: absolute; width: 20px; height: 20px; background: #000; top: 5px; right: 5px;"></div>
+                        <div style="position: absolute; width: 20px; height: 20px; background: #000; bottom: 5px; left: 5px;"></div>
+                    </div>
+                    <div style="font-size: 0.5rem; color: #666; text-align: center; margin-top: 5px;">
+                        扫描分享
+                    </div>
+                </div>
+            `;
+            
+            // 添加点击复制功能
+            qrcodeEl.addEventListener('click', function() {
+                navigator.clipboard.writeText(currentUrl).then(() => {
+                    const originalHTML = qrcodeEl.innerHTML;
+                    qrcodeEl.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #000; font-size: 0.8rem; text-align: center;">链接已复制！</div>';
+                    
+                    setTimeout(() => {
+                        qrcodeEl.innerHTML = originalHTML;
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
